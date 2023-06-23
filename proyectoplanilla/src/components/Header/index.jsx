@@ -13,7 +13,7 @@ const Header = () => {
         justifyContent: 'space-around',
         alignItems: 'center',
         width: '100%',
-        height: '70px',
+        height: '600px',
         /*background-color: #023877;*/
         backgroundColor: '#FFE900',
        }}>
