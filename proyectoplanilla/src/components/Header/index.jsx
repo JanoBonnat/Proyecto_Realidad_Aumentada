@@ -13,7 +13,7 @@ const Header = () => {
         justifyContent: 'right',
         alignItems: 'top',
         width: '100%',
-        height: '600px',
+        height: '620px',
         /*background-color: #023877;*/
         backgroundColor: '#FFE900',
        }}>
