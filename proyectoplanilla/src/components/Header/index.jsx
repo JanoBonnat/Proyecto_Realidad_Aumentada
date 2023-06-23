@@ -10,16 +10,25 @@ const Header = () => {
         /*agregamos estilos al header*/
        <div style={{
         display: 'flex',
-        justifyContent: 'space-around',
-        alignItems: 'center',
+        justifyContent: 'right',
+        alignItems: 'top',
         width: '100%',
         height: '600px',
         /*background-color: #023877;*/
         backgroundColor: '#FFE900',
        }}>
-        <Button />
-        <Button />
-        <Button />
+            <div style={{
+                display: 'flex',
+                alignItems: 'right',
+                marginTop: '20px',
+                marginRight: '100px',
+                width: '200px',
+                height: "30px",
+            }}>
+            <Button />
+            <Button />
+            <Button />
+         </div>
        </div>
     );
     /*return(

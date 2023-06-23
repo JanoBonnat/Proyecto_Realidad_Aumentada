@@ -5,16 +5,15 @@ function Button (){
     const ButtonStyle = { 
         width: '80px',
         height: 'inherit',
-        /*display: 'flex',
-        alignItems: 'center',
-        textAlign: 'center',*/
-        padding: '20px 50px',
+        display: 'flex',
+        alignItems: 'space-around',
+        /*padding: '20px 50px',*/
         textTransform: 'uppercase',
-        fontSize: '14px',
+        fontSize: '20px',
         transition: 'all 300ms ease',
         color: 'black',
-        backgroundColor: 'blue',
-        border: '1px solid black',
+        /*backgroundColor: 'blue',*/
+        /*border: '1px solid black',*/
     }
 
 
