@@ -1,15 +1,32 @@
 import React from 'react';
 import './header.css';
+import { Button } from 'C:/proyectoplanilla/proyectoplanilla/src/components/Button';
 /*import imagenes from '../assets/imagenes';*/
 /*import coraje from 'C:/proyectoplanilla/proyectoplanilla/src/assets/img/coraje.jpg';*/
 /*import imagenes from 'C:/proyectoplanilla/proyectoplanilla/src/assets/imagenes.js';*/
+const Header = () => {
 
-function Header(){
-    return(
+    return (
+        /*agregamos estilos al header*/
+       <div style={{
+        display: 'flex',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        width: '100%',
+        height: '70px',
+        /*background-color: #023877;*/
+        backgroundColor: '#FFE900',
+       }}>
+        <Button />
+        <Button />
+        <Button />
+       </div>
+    );
+    /*return(
     <header>
         <div className='header__superior'>
             <div className='logo'>
-                {/*<img src={imagenes.img2} alt="logo" className='imagen'/>*/}
+                <img src={imagenes.img2} alt="logo" className='imagen'/>
                 <h1>REALIDAD AUMENTADA</h1>
             </div>
             <div className='search'>
@@ -32,15 +49,15 @@ function Header(){
                         </li>
                         <li><a href='pen'>Escanear</a></li>
                         <li><a href='pen'>Cursos</a></li>
-                        <li><a href='pen'>Nosotros</a></li>
-                        <li><a href='pen'>Contactos</a></li>
+                        <li><a href='pen' className='ingresar'>Iniciar Sesión</a></li>
+                        <li><a href='pen' className='ingresar' id='registro'>Registrarse</a></li>
                     </ul>
                 </nav>
             </div>
 
         </div>
     </header>
-    )
+    )*/
 }
 
 export { Header };

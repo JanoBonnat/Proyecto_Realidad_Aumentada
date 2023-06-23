@@ -1,13 +1,15 @@
-
 import './App.css';
-import { Header } from "../Header";
+/*import { Button } from '../components/Button/';*/
+import { Header } from "../components/Header";
 
 
 function App() {
   return (
-    
-      <Header>
-      </Header>
+        <div className='container mt-2'>
+          <Header />
+          {/*<Button Onclick={Onclick1}/>*/}
+          
+        </div>
       /*<div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />

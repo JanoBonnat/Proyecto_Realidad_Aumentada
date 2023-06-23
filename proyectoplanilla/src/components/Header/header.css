@@ -6,6 +6,7 @@ header{
     top: 0;
     left: 0;
     background-color: #fff;
+    margin-top: 10px;
 }
 
 
@@ -29,6 +30,8 @@ header{
 .search input{
     width: 300px;
     padding: 10px;
+    border-radius: 20px;
+    transition: all .3s ease;
 }
 
 /*BARRA MENU*/
@@ -76,7 +79,7 @@ nav > ul > li > a{
 }
 
 nav > ul > li:first-child > a{
-    background-image: url('../assets/img/casa.png');
+    /*background-image: url('../assets/img/casa.png');*/
     background-size: 24px;
     background-repeat: no-repeat;
     background-position: center center;
@@ -148,4 +151,16 @@ nav ul li ul li a:hover{
     font-size: 14px;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
 
+}
+
+/*INICIO SESION*/
+
+nav .ingresar{
+    height: inherit;
+    width: inherit;
+    margin-left: 600px;
+}
+
+nav  #registro{
+    margin: 0;
 }
