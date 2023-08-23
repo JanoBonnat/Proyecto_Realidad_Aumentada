@@ -1,0 +1,37 @@
+.menu-button{
+    display: flex;
+    flex-direction: column;
+    width: 3rem;
+    height: 3rem;
+    border: 0;
+    background: transparent;
+    gap: .65rem;
+    padding: 10px 10px 10px 10px;
+}
+
+.menu-button > div{
+    background-color: black;
+    height: 2px;
+    width: 120%;
+    border-radius: 5px;
+    transition: all .5s;
+    transform-origin: left;
+}
+
+div:nth-child(2){
+    transform-origin: left;
+    transition: .4s;
+}
+
+ .menu-button:hover div:first-child {
+    transform: rotate(45deg);
+}
+
+.menu-button:hover div:nth-child(2){
+    width: 0;
+}
+
+.menu-button:hover div:last-child {
+    transform: rotate(-45deg);
+}
+
