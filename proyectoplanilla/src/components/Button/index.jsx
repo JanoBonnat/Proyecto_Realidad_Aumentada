@@ -1,10 +1,11 @@
 import React from 'react';
 import '../Menu/menu.css';
 
-const Button = () => {
+const Button = ({children, className, style}) => {
     return (
-                <button>
-                </button>
+            <button className={className} style={style}>
+                {children}
+            </button>
     );
 }
 
