@@ -1,10 +1,9 @@
 import React from 'react';
 import '../Menu/menu.css';
 
-const Button = ({content}) => {
+const Button = () => {
     return (
-                <button className='menu-button'>
-                    {content}
+                <button>
                 </button>
     );
 }
