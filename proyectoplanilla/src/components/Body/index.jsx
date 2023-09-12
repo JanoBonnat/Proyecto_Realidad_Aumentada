@@ -62,6 +62,7 @@ const Body = () => {
                     <Button style={ItemsStyle} />
                     <Button style={ItemsStyle} />
                     <Button style={ItemsStyle} />
+                    <h1>Texto de prueba</h1>
                 </div>                
              </div>
         </div>
