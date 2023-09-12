@@ -1,77 +1,76 @@
 import React,  {useState} from 'react';
 import { Button } from '../Button';
 
-const Header = () => {
+const Header = ({toggleMenu}) => {
 
-    const [isButtonClicked, setIsButtonClicked] = useState(false);
+    const [isButtonClicked, setIsButtonClicked] = useState(false); /*isButtonClicked = false*/
 
-    const handleButtonClick = () => {
-        setIsButtonClicked(!isButtonClicked);
+    const handleButtonClick = () => { /**Esta función se ejecutará cuando se haga clic en el botón */
+        setIsButtonClicked(!isButtonClicked); /**setButtonClicked es una función que actualiza el estado del botón */
+        toggleMenu(!isButtonClicked);
     }
 
-    const HeaderStyle = {
+    const HeaderStyle = { /*Estilos del Header*/ 
         width: '100%',
-        height: '50px',
-        backgroundColor: 'red'
+        height: '70px',
+        backgroundColor: 'red',
+        top: '10px',
+
     }
 
-    const menuButton = {
+    const menuButton = { /*Estilos del botón*/ 
         display: 'flex',
         flexDirection: 'column',
-        width: '3rem',
-        height: '3rem',
-        border: '0',
+        width: '40px',
+        height: '48px',
+        border: 'none',
         background: 'transparent',
-        gap: '.65rem',
-        padding: '10px 10px 10px 10px',
+        gap: '.58rem',
+        cursor: 'pointer',
+        margin: '20px 0 0 15px'
     }
 
-    const divContainer = {
+
+    const divContainer = { /*Estilos de los palos del menú*/
             backgroundColor: 'black',
-            height: '2px',
-            width: '120%',
-            borderRadius: '5px',
-            transition: 'all .5s',
+            height: '5px',
+            width: '100%',
+            borderRadius: '50px',
+            transition: 'all .3s',
             transformOrigin: 'left',
             /*transform: isButtonClicked ? 'rotate(45deg)' : 'none',*/
     }
 
-   const div1 = isButtonClicked 
-   ? {
-        ...divContainer,
-        transform: 'rotate(45deg)',
+   const div1 = isButtonClicked /*Esta variable define el estilo del primer palo*/ 
+   ? {                          
+        ...divContainer, /**Se está utilizando el operador de propagación (...) para copiar los estilos del objeto divContainer existente. */
+        transform: 'rotate(45deg)', /*Si isButtonClicked es "true", entonces se aplican los estilos entre llaves*/
+         
    }
-   : divContainer;
+   : divContainer; /**Sino, se aplica el estilo definido de divContainer */
 
    const div2 = isButtonClicked 
    ? {
         ...divContainer,
         opacity: '0',
+        width: '0',
    }
    : divContainer;
 
    const div3 = isButtonClicked 
    ? {
         ...divContainer,
-        transform: 'rotate(-45deg',
+        transform: 'rotate(-45deg)',
    }
    : divContainer;
 
-
-
-
-
-
-
     return (
         <div style={HeaderStyle}>
-            <div>
                 <Button className="menu-button" style={menuButton} onClick={handleButtonClick}>
-                        <div className="div-menu1" style={{divContainer, div1}}></div>
-                        <div className="div-menu2" style={{divContainer, div2}}></div>
-                        <div className="div-menu3" style={{divContainer, div3}}></div>
+                        <div className="div-menu1" style={div1}></div>
+                        <div className="div-menu2" style={div2}></div>
+                        <div className="div-menu3" style={div3}></div>
                 </Button>
-            </div>
         </div>
     );
 }
