@@ -1,20 +1,41 @@
-const box = document.getElementById('box');
-
-document.addEventListener('mousemove', (e) => {
-    // Obtener la posición del mouse en relación con la caja
-    const rect = box.getBoundingClientRect();
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-
-    // Calcular la distancia desde el centro de la caja
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const distance = Math.sqrt((mouseX - centerX) ** 2 + (mouseY - centerY) ** 2);
-
-    // Mostrar u ocultar la caja en función de la distancia
-    if (distance < 100) {
-        box.style.display = 'block';
-    } else {
-        box.style.display = 'none';
-    }
-});
+//from https://divicio.us/effects/position-aware-hover-effect-for-divi-button/
+(function($) {
+    /* Position aware hover effect */
+    var ofs, x, y;
+    $(".btn.position_aware_effect").on("click", function(e) {
+      ofs = $(this).offset();
+      x = e.pageX - ofs.left;
+      y = e.pageY - ofs.top;
+      var name = $(this)
+      .text()
+      .toLowerCase()
+      .split(" ")[0];
+  
+      $(this).append(
+        '<div class="blob ' +
+        name +
+        '" style="left:' +
+        x +
+        "px; top: " +
+        y +
+        'px;"></div>'
+      );
+  
+      var blob = $(this).find(".blob");
+      setTimeout(function() {
+        blob.addClass("expand");
+      }, 20);
+    });
+    $(".btn.position_aware_effect").on("mouseleave", function(e) {
+      ofs = $(this).offset();
+      x = e.pageX - ofs.left;
+      y = e.pageY - ofs.top;
+      var blob = $(this).find(".blob");
+      blob.css({ left: x, top: y });
+      blob.removeClass("expand");
+      setTimeout(function() {
+        blob.remove();
+      }, 800);
+    });
+  })(jQuery);
+  

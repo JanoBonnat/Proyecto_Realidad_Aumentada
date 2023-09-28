@@ -3,14 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Mouse Focus</title>
+    <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <div class="box" id="box"></div>
-    </div>
-    <script src="index.js"></script>
-</body>
-</html>
+    <a class="btn btn-md position_aware_effect" href="#">HOVER ME!</a>
 
+    <a class="btn btn-md position_aware_effect" href="#">HOVER ME!</a>
+</body>
+
+<style>
+.btn {
+  display: inline-block;
+  background-color: #f0d913;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #222;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.5s ease;
+}
+.btn-lg {
+  padding: 20px 35px;
+  font-size: 19px;
+}
+.btn-md {
+  padding: 15px 25px;
+  font-size: 13px;
+}
+/*.btn:hover {
+  color: #f0d913;
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.06);
+}*/
+
+/* Effect */
+.blob {
+  z-index: -1;
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  margin-left: 0;
+  margin-top: 0;
+  background: #fff !important; /* define your color here */
+  border-radius: 50%;
+  border-color: #fff !important; /* define your color here */
+  border-width: 1px;
+  border-style: solid;
+  transition: border-width 0.5s ease-in-out, margin-left 0.5s ease-in-out,
+  margin-top 0.5s ease-in-out;
+}
+.expand {
+  border-color: white !important; /* define your color here */
+  border-width: 500px;
+  border-style: solid;
+  transition: border-width 0.5s ease-in-out, margin-left 0.5s ease-in-out,
+  margin-top 0.5s ease-in-out;
+  margin-left: -500px;
+  margin-top: -500px;
+}
+
+
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="index.js"></script>
+
+</html>
