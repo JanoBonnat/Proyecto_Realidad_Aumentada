@@ -5,6 +5,7 @@ const Button = ({children, className, style, onClick}) => {
             <button className={className} style={style} onClick={onClick}>
                 {children}
             </button>
+            
     );
 }
 

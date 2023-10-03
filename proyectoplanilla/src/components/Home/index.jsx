@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Header } from '../Header';
 import { Button } from '../Button';
 
-const Body = () => {
+const Home = () => {
 
     const [isMenuActive, setIsMenuActive] = useState(false);
 
@@ -16,10 +16,11 @@ const Body = () => {
         alignItems: 'center',
         height: '100vh',
     }
-    const bodyStyle = { /**Estilos del body */
-        display: 'flex',
+    const bodyStyle = { 
+        /**Estilos del body */
+        flexDirection: 'column',
+        alignItems: 'center',
         justifyContent: 'center',
-        alignItems: 'top',
         width: '300px',
         height: '600px',
         /*background-color: #023877;*/
@@ -69,6 +70,6 @@ const Body = () => {
     )
 }
 
-export { Body };
+export { Home };
 
 
