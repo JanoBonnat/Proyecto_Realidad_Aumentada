@@ -1,27 +1,33 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-color: black;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-.container {
+button {
     position: relative;
+    padding: 15px 30px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
 }
 
-.box {
-    width: 400px;
-    height: 400px;
-    background-color: transparent;
-    border: 1px solid white;
-    text-align: center;
-    padding: 20px;
-    font-size: 20px;
-    color: white;
-    display: none; /* Inicialmente oculto */
+button::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    background-color: gray;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+    z-index: -1;
 }
+
 
 
