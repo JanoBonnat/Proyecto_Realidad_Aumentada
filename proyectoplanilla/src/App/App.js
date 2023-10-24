@@ -6,9 +6,9 @@ import { Login } from '../components/Login';
 import { Home } from "../components/Home";
 
 //importando módulos de firebase.
-import { appFirebase }  from '../firebase/credenciales'
+import { Auth }  from '../firebase/credenciales'
 import {getAuth, onAuthStateChanged} from 'firebase/auth'
-const auth = getAuth(appFirebase);
+const auth = getAuth(Auth);
 
 
 

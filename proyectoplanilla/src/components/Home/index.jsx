@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import { Header } from '../Header';
 import { Button } from '../Button';
+import { getAuth, signOut } from 'firebase/auth';
 
-const Home = () => {
+const auth = getAuth();
+
+const Home = ({correoUsuario}) => {
 
     const [isMenuActive, setIsMenuActive] = useState(false);
 
@@ -53,17 +56,28 @@ const Home = () => {
         transition: 'all .2s',
         border: '1px solid',
         margin: '10px 0',
-
     }
+
+    const logOut = async () => {
+        try {
+            await signOut(auth);
+        }catch (error) {
+            console.error('Error al cerrar sesión', error);
+        }
+    }
+
+
     return (
         <div style={centrarBody}>                             {/*contenedor de la pantalla de principal.*/}
             <div style={bodyStyle}>                           {/*pantalla principal.*/}
                 <Header toggleMenu={toggleMenu} />            {/*Se llama al componente header. */}
                 <div style={menuStyles}> {/**Menu. */}
+                    <Button style={ItemsStyle} onClick={logOut}>
+                        LOG OUT
+                    </Button>
                     <Button style={ItemsStyle} />
                     <Button style={ItemsStyle} />
-                    <Button style={ItemsStyle} />
-                    <h1>Texto de prueba</h1>
+                    <h4>Bienvenido {correoUsuario}</h4>
                 </div>                
              </div>
         </div>
@@ -71,5 +85,4 @@ const Home = () => {
 }
 
 export { Home };
-
 

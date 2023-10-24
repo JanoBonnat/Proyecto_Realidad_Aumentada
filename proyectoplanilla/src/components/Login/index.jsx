@@ -1,41 +1,43 @@
-import React, { useState } from "react";
-import { Input }  from '../Input';
+import React, { useRef } from "react";
+import { Input } from '../Input';
 import { Button } from '../Button';
 
-import { appFirebase }  from '../../firebase/credenciales';
-import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,} from 'firebase/auth';
-const auth = getAuth(appFirebase);
+import { Auth } from '../../firebase/credenciales';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
+const auth = getAuth(Auth);
 
-const Login = () => {
-
-    const [registrando, setRegistrando] = useState(false);
+const Login = () => {;
+    const correoRef = useRef(null);
+    const contraseñaRef = useRef(null);
 
     const funcAutenticacion = async (e) => {
         e.preventDefault();
-        const correo = e.target.email.value;
-        const contraseña = e.target.contraseña.value;
-        console.log(correo);
-        console.log(contraseña)
-    }
 
-    //INICIO ESTILOS.
+        const correo = correoRef.current?.value;
+        const contraseña = contraseñaRef.current?.value;
+
+        try {
+            await signInWithEmailAndPassword(auth, correo, contraseña);
+            alert(`¡Bienvenido, ${correo}!`);
+        } catch (error) {
+            alert("El correo o contraseña son inválidos");
+        }
+    }
+    // INICIO ESTILOS.
     const padre = {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-       
-       
     }
 
-    const bodyStyle = { /**Estilos del body */
+    const bodyStyle = {
         width: '600px',
         height: '300px',
-        /*background-color: #023877;*/
         backgroundColor: '#FFE900',
         boxShadow: '0 0 15px black',
-        textAlign:'center',
-        display:'flex',
+        textAlign: 'center',
+        display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
     }
@@ -44,29 +46,25 @@ const Login = () => {
         marginTop: '10px',
         width: '100px',
         height: '40px',
-        content: 'Enviar',
-        border:'1px solid black',
-        borderRadius:'3px',
+        border: '1px solid black',
+        borderRadius: '3px',
     }
-    
+    // FIN ESTILOS.
 
-    //FIN ESTILOS.
-
-    return(
+    return (
         <div style={padre}>
             <div style={bodyStyle}>
                 <form onSubmit={funcAutenticacion}>
-                    <label>Nombre</label>
-                    <Input placeholder="" id="email"/>
-                    <label>Apellido</label>
-                    <Input placeholder="" id="contraseña"/>
-                    <Button style={submitStyle}>{registrando ? "Registrate" : "Inicia Sesión"}</Button>
-                    <h4>{registrando ? "Si ya tienes una cuenta" : "No tienes una cuenta"}</h4>
-                    <Button style={submitStyle} onClick={()=>setRegistrando(!registrando)}>{registrando ? "Inicia Sesión" : "Registrate"}</Button>
+                    <label>Correo</label>
+                    <Input placeholder="" id="email" ref={correoRef}/>
+                    <label>Contraseña</label>
+                    <Input placeholder="" type="password" id="contraseña" ref={contraseñaRef}/>
+                    <Button style={submitStyle} type="submit" className="boton">Inicia Sesión</Button>
+                    <Button to="../Register/index.jsx">Registrate</Button>
                 </form>
             </div>
         </div>
-    )
+    );
 }
 
 export { Login };

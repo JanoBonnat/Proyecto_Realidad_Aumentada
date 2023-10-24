@@ -21,4 +21,4 @@ const appFirebase = initializeApp(firebaseConfig);
 const Auth = appFirebase;
 /*const analytics = getAnalytics(appFirebase);*/
 
-export { appFirebase };
+export { Auth };

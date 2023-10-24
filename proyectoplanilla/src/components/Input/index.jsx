@@ -1,11 +1,12 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-const Input = ({type, value, onChange, placeholder}) => (
+const Input = forwardRef(({ type, value, onChange, placeholder }, ref) => (
   <div>
-    <input type={type} value={value} onChange={onChange} placeholder={placeholder} />
+    <input type={type} value={value} onChange={onChange} placeholder={placeholder} ref={ref} />
   </div>
-);
+));
 
 export { Input };
+
 
 
