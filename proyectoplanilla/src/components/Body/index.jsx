@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Header } from 'C:/proyectoplanilla/proyectoplanilla/src/components/Header';
+import { Header } from '../Header';
 import { Button } from '../Button';
 
 const Body = () => {
