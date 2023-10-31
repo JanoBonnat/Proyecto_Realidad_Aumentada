@@ -61,7 +61,7 @@ const Login = () => {;
                     <Input placeholder="" type="password" id="contraseña" ref={contraseñaRef}/>
                     <Button style={submitStyle} type="submit" className="boton">Inicia Sesión</Button>
                 </form>
-                <Button to="../Register/index.jsx">Registrate</Button>
+                <Button to="../Register/index.jsx">Registrate.</Button>
             </div>
         </div>
     );
