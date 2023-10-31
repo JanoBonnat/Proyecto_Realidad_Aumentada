@@ -24,3 +24,20 @@ const QRCodeComponent = ({ text }) => {
 };
 
 export default QRCodeComponent;
+
+
+import React from "react";
+import QRCodeComponent from "./QRCodeComponent";
+
+const App = () => {
+  const textoParaCodificar = "https://www.ejemplo.com";
+
+  return (
+    <div>
+      <h1>Código QR generado con React</h1>
+      <QRCodeComponent text={textoParaCodificar} />
+    </div>
+  );
+};
+
+export default App;
