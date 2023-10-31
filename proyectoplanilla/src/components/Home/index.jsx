@@ -2,12 +2,15 @@ import React, {useState} from 'react';
 import { Header } from '../Header';
 import { Button } from '../Button';
 import { getAuth, signOut } from 'firebase/auth';
+import QRCodeComponent from "./QRCodeComponent";
 
 const auth = getAuth();
 
 const Home = ({correoUsuario}) => {
 
     const [isMenuActive, setIsMenuActive] = useState(false);
+
+    const textoParaCodificar = "https://www.ejemplo.com";
 
     const toggleMenu = (active) => {
         setIsMenuActive(active);
@@ -78,6 +81,10 @@ const Home = ({correoUsuario}) => {
                     <Button style={ItemsStyle} />
                     <Button style={ItemsStyle} />
                     <h4>Bienvenido {correoUsuario}</h4>
+                    <div>
+                        <h1>Código QR generado con React</h1>
+                        <QRCodeComponent text={textoParaCodificar} />
+                    </div>
                 </div>                
              </div>
         </div>
