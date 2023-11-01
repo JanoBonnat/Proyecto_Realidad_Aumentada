@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { Input } from '../Input';
 import { Button } from '../Button';
+import { Link } from 'react-router-dom';
 
 import { Auth } from '../../firebase/credenciales';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
@@ -60,8 +61,10 @@ const Login = () => {;
                     <label>Contraseña</label>
                     <Input placeholder="" type="password" id="contraseña" ref={contraseñaRef}/>
                     <Button style={submitStyle} type="submit" className="boton">Inicia Sesión</Button>
-                    <Button to="../Register/index.jsx">Registrate</Button>
                 </form>
+                <Link>
+                    <Button to="../Register/index.jsx">Registrate</Button>
+                </Link>
             </div>
         </div>
     );
