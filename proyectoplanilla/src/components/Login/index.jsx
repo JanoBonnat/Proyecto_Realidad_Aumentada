@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { Input } from '../Input';
 import { Button } from '../Button';
+import  '../Estilos/style.css';
 /*import { Link } from 'react-router-dom';*/
 
 import { Auth } from '../../firebase/credenciales';
@@ -54,14 +55,14 @@ const Login = () => {;
     // FIN ESTILOS.
 */
     return (
-        <div style={padre}>
-            <div style={bodyStyle}>
-                <form onSubmit={funcAutenticacion}>
+        <div /*style={padre}*/>
+             <div /*style={bodyStyle}*/>
+                <form  onSubmit={funcAutenticacion}>
                     <label>Correo</label>
                     <Input placeholder="" id="email" ref={correoRef}/>
                     <label>Contraseña</label>
                     <Input placeholder="" type="password" id="contraseña" ref={contraseñaRef}/>
-                    <Button style={submitStyle} type="submit" className="boton">Inicia Sesión</Button>
+                    <Button /*style={submitStyle}*/ type="submit" className="boton">Inicia Sesión</Button>
                 </form>
             
             </div>
