@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Input } from '../Input';
 import { Button } from '../Button';
-import { Link } from 'react-router-dom';
+/*import { Link } from 'react-router-dom';*/
 
 import { Auth } from '../../firebase/credenciales';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
@@ -26,6 +26,7 @@ const Login = () => {;
         }
     }
     // INICIO ESTILOS.
+    /*
     const padre = {
         display: 'flex',
         justifyContent: 'center',
@@ -51,7 +52,7 @@ const Login = () => {;
         borderRadius: '3px',
     }
     // FIN ESTILOS.
-
+*/
     return (
         <div style={padre}>
             <div style={bodyStyle}>
@@ -62,9 +63,7 @@ const Login = () => {;
                     <Input placeholder="" type="password" id="contraseña" ref={contraseñaRef}/>
                     <Button style={submitStyle} type="submit" className="boton">Inicia Sesión</Button>
                 </form>
-                <Link>
-                    <Button to="../Register/index.jsx">Registrate</Button>
-                </Link>
+            
             </div>
         </div>
     );
