@@ -2,13 +2,14 @@ import React, {useState} from 'react';
 import { Header } from '../Header';
 import { Button } from '../Button';
 import { getAuth, signOut } from 'firebase/auth';
-import QRCodeComponent from "./QRCodeComponent";
+import QRCodeComponent from "../QR/index";
 
 const auth = getAuth();
 
 const Home = ({correoUsuario}) => {
 
     const [isMenuActive, setIsMenuActive] = useState(false);
+    
 
     const textoParaCodificar = "https://www.ejemplo.com";
 

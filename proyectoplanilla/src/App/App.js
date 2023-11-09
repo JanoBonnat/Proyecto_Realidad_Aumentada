@@ -16,6 +16,7 @@ function App() {
 
   const [usuario, setUsuario] = useState(null);
 
+  
   onAuthStateChanged(auth, (usuarioFirebase) => {
     if(usuarioFirebase){
       setUsuario(usuarioFirebase);
@@ -29,6 +30,7 @@ function App() {
         <div className='container mt-2'>
           {usuario ? <Home correoUsuario = {usuario.email} /> : <Login/>}
         </div>
+
   );
 }
 
