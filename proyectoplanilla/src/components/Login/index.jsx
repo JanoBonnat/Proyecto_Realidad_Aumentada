@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-
+import { Input } from '../Input';
 
 const Login = () => {;
     const correoRef = useRef(null);
