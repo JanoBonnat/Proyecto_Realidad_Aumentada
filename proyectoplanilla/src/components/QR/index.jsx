@@ -22,3 +22,4 @@ const QRCodeComponent = ({ text }) => {
   return <div ref={qrCodeRef}></div>;
 };
 
+export default QRCodeComponent;
