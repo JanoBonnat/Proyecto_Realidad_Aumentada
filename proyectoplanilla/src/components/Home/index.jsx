@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { Header } from '../Header';
+import { Button } from '../Button';
 
 const auth = getAuth();
 
