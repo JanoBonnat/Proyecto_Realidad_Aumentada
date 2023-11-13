@@ -1,11 +1,5 @@
 import React, { useRef } from "react";
-import { Input } from '../Input';
-import { Button } from '../Button';
 
-import { Auth } from '../../firebase/credenciales';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-
-const auth = getAuth(Auth);
 
 const Login = () => {;
     const correoRef = useRef(null);
