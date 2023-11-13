@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Header } from '../Header';
 import { Button } from '../Button';
 import { getAuth, signOut } from 'firebase/auth';
+import QRCode from 'react-qr-code';
 
 const auth = getAuth();
 
