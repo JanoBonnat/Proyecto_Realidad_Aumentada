@@ -5,6 +5,8 @@ import { Button } from '../Button';
 import { Auth } from '../../firebase/credenciales';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
+const auth = getAuth(Auth);
+
 const Login = () => {;
     const correoRef = useRef(null);
     const contraseñaRef = useRef(null);
