@@ -12,7 +12,8 @@ const Login = () => {;
     const contraseñaRef = useRef(null);
 
     const funcAutenticacion = async (e) => {
-        
+        e.preventDefault();
+
         const correo = correoRef.current?.value;
         const contraseña = contraseñaRef.current?.value;
 
