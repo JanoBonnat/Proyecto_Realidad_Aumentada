@@ -3,6 +3,7 @@ import { Input } from '../Input';
 import { Button } from '../Button';
 
 import { Auth } from '../../firebase/credenciales';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 const Login = () => {;
     const correoRef = useRef(null);
