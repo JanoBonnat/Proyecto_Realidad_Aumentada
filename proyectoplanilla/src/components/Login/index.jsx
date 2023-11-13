@@ -8,7 +8,7 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 const auth = getAuth(Auth);
 
 const Login = () => {;
-    
+    const correoRef = useRef(null);
     const contraseñaRef = useRef(null);
 
     const funcAutenticacion = async (e) => {
