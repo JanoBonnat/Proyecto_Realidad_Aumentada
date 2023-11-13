@@ -8,6 +8,7 @@ const QRCodeComponent = ({ text }) => {
     // Crea el código QR
     const qrCode = new QRCode(qrCodeRef.current, {
       text: text,
+      width: 128,
       
     });
 
