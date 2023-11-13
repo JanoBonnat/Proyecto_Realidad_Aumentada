@@ -9,7 +9,7 @@ const QRCodeComponent = ({ text }) => {
     const qrCode = new QRCode(qrCodeRef.current, {
       text: text,
       width: 128,
-      
+      height: 128
     });
 
     // Limpia el código QR cuando el componente se desmonta
