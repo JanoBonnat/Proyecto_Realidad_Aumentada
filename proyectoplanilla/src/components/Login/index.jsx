@@ -32,16 +32,8 @@ const Login = () => {;
     }
 
 
-
     const bodyStyle = {
-        width: '600px',
-        height: '300px',
-        backgroundColor: '#FFE900',
-        boxShadow: '0 0 15px black',
-        textAlign: 'center',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        
     }
 
     const submitStyle = {
