@@ -26,10 +26,10 @@ const Login = () => {;
     }
     // INICIO ESTILOS.
     const padre = {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        
     }
+
+
 
     const bodyStyle = {
         width: '600px',
