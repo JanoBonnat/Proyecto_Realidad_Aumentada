@@ -26,7 +26,7 @@ const Login = () => {;
     }
     // INICIO ESTILOS.
     const padre = {
-        
+        display: 'flex',
     }
 
 
