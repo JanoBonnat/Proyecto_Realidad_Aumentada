@@ -34,6 +34,7 @@ const Login = () => {;
 
     const bodyStyle = {
         width: '600px',
+        height: '300px',
         
     }
 
