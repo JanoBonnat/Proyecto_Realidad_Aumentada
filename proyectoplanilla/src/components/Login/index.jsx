@@ -38,6 +38,7 @@ const Login = () => {;
         backgroundColor: '#FFE900',
         boxShadow: '0 0 15px black',
         textAlign: 'center',
+        display: 'flex',
     }
 
     const submitStyle = {
