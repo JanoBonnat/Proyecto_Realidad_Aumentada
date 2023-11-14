@@ -40,7 +40,7 @@ const Login = () => {;
         textAlign: 'center',
         display: 'flex',
         alignItems: 'center',
-        
+        justifyContent: 'center',
     }
 
     const submitStyle = {
