@@ -37,7 +37,7 @@ const Login = () => {;
         height: '300px',
         backgroundColor: '#FFE900',
         boxShadow: '0 0 15px black',
-        
+        textAlign: 'center',
     }
 
     const submitStyle = {
