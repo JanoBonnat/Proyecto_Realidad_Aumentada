@@ -28,6 +28,7 @@ const Login = () => {;
     const padre = {
         display: 'flex',
         justifyContent: 'center',
+        alignItems: 'center',
     }
 
 
