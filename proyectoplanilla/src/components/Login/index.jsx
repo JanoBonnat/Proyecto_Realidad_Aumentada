@@ -39,6 +39,8 @@ const Login = () => {;
         boxShadow: '0 0 15px black',
         textAlign: 'center',
         display: 'flex',
+        alignItems: 'center',
+        
     }
 
     const submitStyle = {
