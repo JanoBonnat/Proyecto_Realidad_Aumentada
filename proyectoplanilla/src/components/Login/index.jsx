@@ -3,7 +3,7 @@ import { Input } from '../Input';
 import { Button } from '../Button';
 import { Auth } from '../../firebase/credenciales';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
-import '../Estilos/style.css';
+/*import '../Estilos/style.css';*/
 
 const auth = getAuth(Auth);
 
@@ -23,7 +23,7 @@ const Login = () => {
 
     const [registroError, setRegistroError] = useState(null); //Mensaje de error registro.
 
-    const validarNombre = () => {
+    /*const validarNombre = () => {
         const nombreUsuario = nombreRef.current?.value;
         if (!expresiones.nombre.test(nombreUsuario)) {
             setRegistroError("El nombre no puede contener números ni caracteres especiales");
@@ -48,14 +48,14 @@ const Login = () => {
                 input.current.style.border = "1px solid #ced4da"; // Restaurar el estilo por defecto
             }
         });
-    };
+    };*/
 
     const funcAutenticacion = async (e, registrando) => {
         e.preventDefault();
 
-        if (!validarInputs()) {
+        /*if (!validarInputs()) {
             return;
-        }
+        }*/
 
         const correo = correoRef.current?.value;
         const contraseña = contraseñaRef.current?.value;
@@ -96,17 +96,17 @@ const Login = () => {
 
 
     return (
-        < div className="container" id="container">
-                <div className="form-container sign-up">
-                    <form onSubmit={(e) => { e.preventDefault(); resaltarErrores(); funcAutenticacion(e, true); }} style={loginStyle}>
+        < div>
+                <div>
+                    <form onSubmit={(e) => { e.preventDefault(); /*resaltarErrores();*/ funcAutenticacion(e, true); }} style={loginStyle}>
                         <h1>Registro</h1>
-                        <label>Nombre y Apellido</label>
+                        {/*<label>Nombre y Apellido</label>
                         <Input
                             placeholder=""
                             id="nombre"
                             ref={nombreRef}
                             onChange={() => validarNombre()}
-                        />
+    />*/}
                         <label>Correo</label>
                         <Input placeholder="" id="correo" ref={correoRef} />
                         <label>Contraseña</label>
@@ -118,8 +118,8 @@ const Login = () => {
                         <p style={{ color: 'red' }}>{registroError}</p>
                     </form>
                 </div>
-                <div className="form-container sign-in">
-                    <form onSubmit={(e) => { e.preventDefault(); resaltarErrores(); funcAutenticacion(e, false); }}>
+                <div >
+                    <form onSubmit={(e) => { e.preventDefault(); /*resaltarErrores();*/ funcAutenticacion(e, false); }}>
                         <h1>Login</h1>
                         <label>Correo</label>
                         <Input placeholder="" id="correo" ref={correoRef} />
@@ -129,7 +129,7 @@ const Login = () => {
                         <Button type="submit" className="boton">Inicia Sesión</Button>
                     </form>
                 </div>
-                <div className="toggle-container">
+                {/*<div className="toggle-container">
                     <div className="toggle">
                         <div className="toggle-panel toggle-left">
                             <h1>Welcome Back!</h1>
@@ -142,7 +142,7 @@ const Login = () => {
                             <button className="hidden" id="register">Sign Up</button>
                         </div>
                     </div>
-                </div>
+    </div>*/}
         </div>
     );
 }
