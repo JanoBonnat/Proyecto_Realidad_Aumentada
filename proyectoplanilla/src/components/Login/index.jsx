@@ -7,19 +7,19 @@ import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } f
 
 const auth = getAuth(Auth);
 
-const expresiones = {
+/*const expresiones = {
     usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
     nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
     password: /^.{4,12}$/, // 4 a 12 digitos.
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
     telefono: /^\d{7,14}$/ // 7 a 14 numeros.
-};
+};*/
 
 const Login = () => {
     const correoRef = useRef(null);
     const contraseñaRef = useRef(null);
     const confirmarContraseñaRef = useRef(null);
-    const nombreRef = useRef(null); 
+    /*const nombreRef = useRef(null); */
 
     const [registroError, setRegistroError] = useState(null); //Mensaje de error registro.
 
@@ -64,7 +64,7 @@ const Login = () => {
         try {
             if (registrando) {
 
-                if (contraseña.length < 8) {
+                /*if (contraseña.length < 8) {
                     setRegistroError("La contraseña debe tener al menos 8 caracteres");
                     return;
                 }
@@ -72,7 +72,7 @@ const Login = () => {
                 if (contraseña !== confirmarContraseña) {
                     alert("Las contraseñas no coinciden");
                     return;
-                }
+                }*/
 
                 await createUserWithEmailAndPassword(auth, correo, contraseña);
                 alert(`¡Usuario registrado! ¡Bienvenido, ${correo}!`);
