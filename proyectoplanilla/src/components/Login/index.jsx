@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 import { Input } from '../Input';
 import { Button } from '../Button';
-import { Link } from 'react-router-dom';
+/*import { Link } from 'react-router-dom';*/
+import '../Estilos/style.css';
 
 import { Auth } from '../../firebase/credenciales';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
@@ -26,7 +27,7 @@ const Login = () => {;
         }
     }
     // INICIO ESTILOS.
-    const padre = {
+    /*const padre = {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -49,22 +50,22 @@ const Login = () => {;
         height: '40px',
         border: '1px solid black',
         borderRadius: '3px',
-    }
+    }*/
     // FIN ESTILOS.
 
     return (
-        <div style={padre}>
-            <div style={bodyStyle}>
+        <div /*style={padre}*/>
+            <div /*style={bodyStyle}*/>
                 <form onSubmit={funcAutenticacion}>
                     <label>Correo</label>
                     <Input placeholder="" id="email" ref={correoRef}/>
                     <label>Contraseña</label>
                     <Input placeholder="" type="password" id="contraseña" ref={contraseñaRef}/>
-                    <Button style={submitStyle} type="submit" className="boton">Inicia Sesión</Button>
+                    <Button /*style={submitStyle}*/ type="submit" className="boton">Inicia Sesión</Button>
                 </form>
-                <Link>
+                {/*<Link>
                     <Button to="../Register/index.jsx">Registrate</Button>
-                </Link>
+                </Link>*/}
             </div>
         </div>
     );

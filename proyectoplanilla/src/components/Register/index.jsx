@@ -9,6 +9,9 @@ const Register = () => {
     <div>
         <form>
             <Input placeholder="">Registrate pibe</Input>
+            <Input placeholder="">Registrate pibe</Input>
+            <Input placeholder="">Registrate pibe</Input>
+            <Input placeholder="">Registrate pibe</Input>
         </form>
     </div>
 }

@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import { useState } from 'react';
 
@@ -8,6 +9,7 @@ import { Home } from "../components/Home";
 //importando módulos de firebase.
 import { Auth }  from '../firebase/credenciales'
 import {getAuth, onAuthStateChanged} from 'firebase/auth'
+
 const auth = getAuth(Auth);
 
 
@@ -29,6 +31,7 @@ function App() {
         <div className='container mt-2'>
           {usuario ? <Home correoUsuario = {usuario.email} /> : <Login/>}
         </div>
+        
   );
 }
 
