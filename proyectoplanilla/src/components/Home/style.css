@@ -1,0 +1,106 @@
+/*body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.logout {
+    background-color: aqua;
+}
+
+.estilomenu {
+    height: 100%;
+    background-color: blue;
+    transition: all .3s;
+    transform-origin: right;
+    transform: translateX(110%);
+    overflow: hidden;
+    width: 110%;
+    left: -110%;
+}
+
+.estiloitems {
+    background-color: orange;
+    height: 40px;
+    width: 90%;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .2s;
+    border: 1px solid;
+    margin: 10px 0;
+}
+
+
+/* Menu.css */
+
+
+/* Menu.css */
+
+.navbar {
+    background-color: #333;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.menu {
+    display: flex;
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+    max-height: 0;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    background-color: #333;
+    top: 70px;
+    left: 0;
+    z-index: 1000;
+}
+
+.menu a {
+    text-align: center;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #555;
+    color: white;
+    text-decoration: none;
+}
+
+.icon {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+.open {
+    max-height: 300px;
+    /* Ajusta el valor según sea necesario */
+}
+
+@media only screen and (max-width: 768px) {
+    .menu {
+        display: none;
+    }
+    .icon {
+        display: block;
+    }
+    .menu.open {
+        display: flex;
+    }
+}
