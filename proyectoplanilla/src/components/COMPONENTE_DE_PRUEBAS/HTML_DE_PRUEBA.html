@@ -1,71 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Modern Login Page | AsmrProg</title>
 </head>
+
 <body>
-    <a class="btn btn-md position_aware_effect" href="#">HOVER ME!</a>
 
-    <a class="btn btn-md position_aware_effect" href="#">HOVER ME!</a>
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registeration</span>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form>
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email password</span>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <a href="#">Forget Your Password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
 </body>
-
-<style>
-.btn {
-  display: inline-block;
-  background-color: #f0d913;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #222;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  transition: all 0.5s ease;
-}
-.btn-lg {
-  padding: 20px 35px;
-  font-size: 19px;
-}
-.btn-md {
-  padding: 15px 25px;
-  font-size: 13px;
-}
-/*.btn:hover {
-  color: #f0d913;
-  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.06);
-}*/
-
-/* Effect */
-.blob {
-  z-index: -1;
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  margin-left: 0;
-  margin-top: 0;
-  background: #fff !important; /* define your color here */
-  border-radius: 50%;
-  border-color: #fff !important; /* define your color here */
-  border-width: 1px;
-  border-style: solid;
-  transition: border-width 0.5s ease-in-out, margin-left 0.5s ease-in-out,
-  margin-top 0.5s ease-in-out;
-}
-.expand {
-  border-color: white !important; /* define your color here */
-  border-width: 500px;
-  border-style: solid;
-  transition: border-width 0.5s ease-in-out, margin-left 0.5s ease-in-out,
-  margin-top 0.5s ease-in-out;
-  margin-left: -500px;
-  margin-top: -500px;
-}
-
-
-</style>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="index.js"></script>
 
 </html>

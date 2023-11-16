@@ -16,16 +16,16 @@ const auth = getAuth(Auth);
 
 function App() {
 
-  const [usuario, setUsuario] = useState(null);
+    const [usuario, setUsuario] = useState(null);
 
-  onAuthStateChanged(auth, (usuarioFirebase) => {
-    if(usuarioFirebase){
-      setUsuario(usuarioFirebase);
-    }
-    else{
-      setUsuario(null);
-    }
-  })
+    onAuthStateChanged(auth, (usuarioFirebase) => {
+        if (usuarioFirebase) {
+            setUsuario(usuarioFirebase);
+        } else {
+            setUsuario(null);
+        }
+    })
+
 
   return (
         <div className='container mt-2'>
@@ -33,6 +33,11 @@ function App() {
         </div>
         
   );
+    return ( 
+        <div className = 'container mt-2' > { usuario ? < Home correoUsuario = { usuario.email } /> : <Login/ > } 
+        </div>
+    );
+
 }
 
 export default App;
