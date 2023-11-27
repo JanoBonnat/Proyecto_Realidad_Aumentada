@@ -33,10 +33,6 @@ function App() {
         </div>
         
   );
-    return ( 
-        <div className = 'container mt-2' > { usuario ? < Home correoUsuario = { usuario.email } /> : <Login/ > } 
-        </div>
-    );
 
 }
 

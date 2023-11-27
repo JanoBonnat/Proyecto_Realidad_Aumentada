@@ -2,69 +2,69 @@ import React, { useRef, useState } from "react";
 import { Input } from '../Input';
 import { Button } from '../Button';
 import { Auth } from '../../firebase/credenciales';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { Registro } from '../Registro'; // Importamos el componente de registro
 import './style.css';
 
 const auth = getAuth(Auth);
 
 const Login = () => {
+
+
     const correoRef = useRef(null);
     const contraseñaRef = useRef(null);
-    const confirmarContraseñaRef = useRef(null);
     const containerRef = useRef(null); // referencia al contenedor
     const signInEmailRef = useRef(null);
     const signUpEmailRef = useRef(null);
 
-    const [registroError, setRegistroError] = useState(null); //Mensaje de error registro.
+    const [loginError, setLoginError] = useState(null); //Mensaje de error registro.
 
 
 
     const funcAutenticacion = async (e, registrando) => {
         e.preventDefault();
 
-        const correo = correoRef.current?.value;
+        const correo = correoRef.current?.value
         const contraseña = contraseñaRef.current?.value;
-        const confirmarContraseña = confirmarContraseñaRef.current?.value;
-        
 
-        try {
-            
-            //INICIO DE SESIÓN.
-            if (!registrando){
-                await signInWithEmailAndPassword(auth, correo, contraseña);
-                alert(`¡Bienvenido, ${correo}!`);
+        if (!registrando) {
+            try {
+                // Verificar si el correo existe en la base de datos de Firebase
+                const userCredential = await signInWithEmailAndPassword(auth, correo, contraseña);
+    
+                // El inicio de sesión fue exitoso
+                const user = userCredential.user;
+                alert(`¡Bienvenido, ${user.email}!`);
+            } catch (error) {
+
+                console.error("Error de registro:", error);
+                setLoginError(`Error de registro: ${error.message}`);
+
+                if (!correo && !contraseña){
+                    setLoginError('Debes llenar los campos');
+                }
+
+                if (error.code === 'auth/user-not-found'){
+                    setLoginError('El correo ingresado no es el correcto');
+                }
+
+                if (error.code === 'auth/wrong-password'){
+                    setLoginError('Contraseña incorrecta. Por favor, verifica tu contraseña e inténtalo de nuevo.')
+                }
+
+                if (error.code === "auth/missing-password"){
+                    setLoginError('Debes ingresar una contraseña');
+                }
+
+                if (error.code === "auth/invalid-login-credentials") {
+                    setLoginError("El correo o contraseña son inválidos. Inténtelo de nuevo.");
+                }
+
+                if (error.code === "auth/too-many-requests"){
+                    setLoginError("La cuenta ha sido bloqueada debido a demasiados intentos de inicio de sesión. Inténtalo de nuevo más tarde.");
+                }
             }
-            //END INICIO DE SESIÓN.
-
-            //REGISTRO
-            if (registrando) {
-
-                if (contraseña.length < 8) {
-                    setRegistroError("La contraseña debe tener al menos 8 caracteres");
-                    return;
-                }
-
-                if (contraseña !== confirmarContraseña) {
-                    setRegistroError("Las contraseñas no coinciden");
-                    return;
-                }
-
-                await createUserWithEmailAndPassword(auth, correo, contraseña);
-                alert(`¡Usuario registrado! ¡Bienvenido, ${correo}!`);
-            } 
-            //END REGISTRO.
-
-        } catch (error) {
-            setRegistroError(`Error de autenticación: ${error.message}`);
-            return;
         }
-    }
-
-    //ESTILOS PROVISORIOS AHRE.
-    const loginStyle = {
-        marginBottom: '50px',
-        marginTop: '50px',
-        border: 'none',
     }
 
     const openSignIn = () => {
@@ -86,7 +86,7 @@ const Login = () => {
     return (
         < div className="container" id="container" ref={containerRef}>
                 <div className="form-container sign-in-container">
-                    <form onSubmit={(e) => { e.preventDefault();  funcAutenticacion(e, false); }}>
+                    <form onSubmit={(e) => { funcAutenticacion(e); }}>
                         <h1>Login</h1>
                         <label>Correo</label>
                         <Input placeholder="" id="correo" ref={correoRef} />
@@ -94,20 +94,7 @@ const Login = () => {
                         <Input placeholder="" type="password" id="contraseña" ref={contraseñaRef} />
                         <br></br>
                         <Button type="submit" className="boton">Inicia Sesión</Button>
-                    </form>
-                </div>
-                <div className="form-container sign-up-container">
-                    <form onSubmit={(e) => { e.preventDefault();  funcAutenticacion(e, true); }} style={loginStyle}>
-                        <h1>Registro</h1>
-                        <label>Correo</label>
-                        <Input placeholder="" id="correo" ref={correoRef} />
-                        <label>Contraseña</label>
-                        <Input placeholder="" type="password" id="contraseña" ref={contraseñaRef} />
-                        <label>Confirmar contraseña</label>
-                        <Input placeholder="" type="password" id="confirmarContraseña" ref={confirmarContraseñaRef} />
-                        <br></br>
-                        <Button type="submit" className="boton">Registrarse</Button>
-                        <p style={{ color: 'red' }}>{registroError}</p>
+                        <p style={{ color: 'red', width: '290px'}}>{loginError}</p>
                     </form>
                 </div>
                 <div className="overlay-container">
@@ -124,6 +111,7 @@ const Login = () => {
                         </div>
                     </div>
                 </div>
+                <Registro/>
         </div>
     );
 }
