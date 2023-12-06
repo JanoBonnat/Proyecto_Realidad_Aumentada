@@ -16,7 +16,7 @@ const QRCodeComponent = ({ text }) => {
     return () => {
       qrCode.clear();
     };
-  }, [text]);
+  }, [text]); 
     
 
   return <div ref={qrCodeRef}></div>;

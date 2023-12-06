@@ -1,6 +1,10 @@
 {
   "dependencies": {
     "firebase": "^10.4.0",
+<<<<<<< HEAD
     "qrcode-generator": "^1.4.4"
+=======
+    "react-router-dom": "^6.18.0"
+>>>>>>> f033581c76c734be51934a3f7e662437f5e4c429
   }
 }
