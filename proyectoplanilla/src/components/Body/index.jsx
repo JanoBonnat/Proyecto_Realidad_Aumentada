@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Header } from '../Header';
 import { Button } from '../Button';
 
+
 const Body = () => {
 
     const [isMenuActive, setIsMenuActive] = useState(false);
@@ -17,7 +18,7 @@ const Body = () => {
         height: '100vh',
     }
     const bodyStyle = { /**Estilos del body */
-        display: 'flex',
+        display: 'flex'
         justifyContent: 'center',
         alignItems: 'top',
         width: '300px',
