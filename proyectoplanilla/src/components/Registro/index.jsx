@@ -3,7 +3,7 @@ import { Input } from '../Input';
 import { Button } from '../Button';
 import { Auth } from '../../firebase/credenciales';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import './style.css';
+import '../Login/style.css';
 
 const auth = getAuth(Auth);
 
