@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
 import { useState } from 'react';
 
 //Importando componentes.
 import { Login } from '../components/Login';
 import { Home } from "../components/Home";
+import { ShowProducts } from '../components/ShowProducts/ShowSproducts';
 
 //importando módulos de firebase.
 import { Auth }  from '../firebase/credenciales'
@@ -29,7 +29,7 @@ function App() {
 
   return (
         <div className='container mt-2'>
-          {usuario ? <Home correoUsuario = {usuario.email} /> : <Login/>}
+          {usuario ? <ShowProducts correoUsuario = {usuario.email} /> : <Login/>}
         </div>
         
   );

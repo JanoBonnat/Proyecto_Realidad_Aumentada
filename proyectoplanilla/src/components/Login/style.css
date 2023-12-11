@@ -277,24 +277,16 @@ footer a {
   width: 290px; 
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-  margin-bottom: 90px;
+  margin-bottom: 260px;
 }
 
 .errorMessage.visible {
   opacity: 1;
 }
 
-
 .boton {
-  margin-top: 300px;
-  position: fixed;
+  margin-top: 40px;
 }
-
-.h1Poderoso{
-  position: fixed;
-  margin-bottom: 300px;
-}
-
 
 
 
