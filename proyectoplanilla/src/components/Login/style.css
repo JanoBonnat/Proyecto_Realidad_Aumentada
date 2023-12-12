@@ -82,10 +82,12 @@ form {
 
 input {
   background-color: #eee;
-  border: none;
+  border: 2px solid transparent;
   padding: 12px 15px;
   margin: 8px 0;
   width: 100%;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
 }
 
 .container {
@@ -107,6 +109,7 @@ input {
 }
 
 .sign-in-container {
+  display: block;
   left: 0;
   width: 50%;
   z-index: 2;
@@ -250,3 +253,41 @@ footer a {
   color: #3c97bf;
   text-decoration: none;
 }
+
+/**Bordes rojos*/
+.error {
+  border: 2px solid red; /* Establecer un borde transparente inicialmente */
+  transition: border-color 0.3s ease-in-out; /* Añadir transición para el cambio de color */
+}
+/**End bordes rojos*/
+
+/**Contenedor del mensaje de error*/
+.errorContainer {
+  margin-top: 30px; /* Espacio adicional para el mensaje de error */
+  height: 20px; /* Altura fija para evitar movimientos */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/**End contenedor del mensaje de error*/
+
+/**Mensaje de error*/
+.errorMessage {
+  color: red;
+  width: 290px; 
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  margin-bottom: 260px;
+}
+
+.errorMessage.visible {
+  opacity: 1;
+}
+
+.boton {
+  margin-top: 40px;
+}
+
+
+
+/**End mensaje de error*/

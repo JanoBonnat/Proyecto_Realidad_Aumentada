@@ -18,6 +18,9 @@ const Login = () => {
     const signUpEmailRef = useRef(null);
 
     const [loginError, setLoginError] = useState(null); //Mensaje de error registro.
+    const [correoError, setCorreoError] = useState(false);
+    const [contraseñaError, setContraseñaError] = useState(false);
+    const [errorMessageVisible, setErrorMessageVisible] = useState(false);
 
 
 
@@ -41,32 +44,57 @@ const Login = () => {
                 setLoginError(`Error de registro: ${error.message}`);
 
                 if (!correo && !contraseña){
-                    setLoginError('Debes llenar los campos');
+                    setLoginError('Debes llenar los campos.');
+                    setCorreoError(!correo);
+                    setContraseñaError(!contraseña);
+                    return;
                 }
 
-                if (error.code === 'auth/user-not-found'){
-                    setLoginError('El correo ingresado no es el correcto');
+                if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-email') {
+                    // Verificar si el correo tiene el formato correcto antes de restablecer el estado de error
+                    if (correo && !correo.includes('@')) {
+                        setCorreoError(true);
+                        setLoginError('Ese formato de correo no es el adecuado.');
+                        setTimeout(() => setErrorMessageVisible(true), 10); /**Se hace visible el mensaje de error */
+                    } else {
+                        setCorreoError(true);
+                        setLoginError('El correo ingresado no es el correcto');
+                        setTimeout(() => setErrorMessageVisible(true), 10);
+                    }
                 }
-
-                if (error.code === 'auth/wrong-password'){
-                    setLoginError('Contraseña incorrecta. Por favor, verifica tu contraseña e inténtalo de nuevo.')
+        
+                if (error.code === 'auth/wrong-password') {
+                    setLoginError('Contraseña incorrecta. Por favor, verifica tu contraseña e inténtalo de nuevo.');
+                    setCorreoError(false);
+                    setContraseñaError(true);
+                    setTimeout(() => setErrorMessageVisible(true), 10); 
                 }
-
-                if (error.code === "auth/missing-password"){
+        
+                if (error.code === "auth/missing-password") {
                     setLoginError('Debes ingresar una contraseña');
+                    setCorreoError(false);
+                    setContraseñaError(true); 
+                    setTimeout(() => setErrorMessageVisible(true), 10);
                 }
-
+        
                 if (error.code === "auth/invalid-login-credentials") {
                     setLoginError("El correo o contraseña son inválidos. Inténtelo de nuevo.");
+                    setCorreoError(true); 
+                    setContraseñaError(true); 
+                    setTimeout(() => setErrorMessageVisible(true), 10);
                 }
-
-                if (error.code === "auth/too-many-requests"){
+        
+                if (error.code === "auth/too-many-requests") {
                     setLoginError("La cuenta ha sido bloqueada debido a demasiados intentos de inicio de sesión. Inténtalo de nuevo más tarde.");
+                    setCorreoError(true); 
+                    setContraseñaError(true);
+                    setTimeout(() => setErrorMessageVisible(true), 10); 
                 }
             }
         }
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     const bodyStyle = {
@@ -80,6 +108,17 @@ const Login = () => {
         justifyContent: 'center',
     }
 =======
+=======
+    const handleCorreoChange = () => {
+        setCorreoError(false);
+    };
+    
+    const handleContraseñaChange = () => {
+        setContraseñaError(false);
+    };
+    
+
+>>>>>>> 6840b14d92a58c0330ae61e8d738005fc24e1de9
     const openSignIn = () => {
         containerRef.current.classList.remove("right-panel-active");
         if (signUpEmailRef.current && signUpEmailRef.current.value !== "") {
@@ -113,15 +152,37 @@ const Login = () => {
 =======
         < div className="container" id="container" ref={containerRef}>
                 <div className="form-container sign-in-container">
-                    <form onSubmit={(e) => { funcAutenticacion(e); }}>
-                        <h1>Login</h1>
-                        <label>Correo</label>
-                        <Input placeholder="" id="correo" ref={correoRef} />
+                    <form onSubmit={(e) => { funcAutenticacion(e, false); }}>
+                        <h1 className="h1Poderoso">Login</h1>
+                        <br></br>
+                        <div className="inputContainer">
+                            <div className="correoPoderoso">
+                                <label className="labelPoderoso">Correo</label>
+                            </div>
+                            <Input
+                                placeholder=""
+                                id="correo"
+                                ref={correoRef}
+                                inputClassName={` ${correoError ? 'error' : ''}`}
+                                onChange={handleCorreoChange}
+                            />
+                            <i class="fas fa-check-circle"></i>
+			                <i class="fas fa-exclamation-circle"></i>
+                        </div>
                         <label>Contraseña</label>
-                        <Input placeholder="" type="password" id="contraseña" ref={contraseñaRef} />
+                        <Input
+                            placeholder=""
+                            type="password"
+                            id="contraseña"
+                            ref={contraseñaRef}
+                            inputClassName={` ${contraseñaError ? 'error' : ''}`}
+                            onChange={handleContraseñaChange}
+                        />
                         <br></br>
                         <Button type="submit" className="boton">Inicia Sesión</Button>
-                        <p style={{ color: 'red', width: '290px'}}>{loginError}</p>
+                        <div className="errorContainer">
+                            <p className={`errorMessage ${errorMessageVisible ? 'visible' : ''}`}>{loginError}</p>
+                        </div>
                     </form>
                 </div>
                 <div className="overlay-container">

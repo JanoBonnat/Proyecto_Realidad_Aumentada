@@ -1,8 +1,16 @@
 import React, { forwardRef } from "react";
 
-const Input = forwardRef(({ type, value, onChange, placeholder }, ref) => (
+const Input = forwardRef(({ type, value, onChange, placeholder, inputClassName, onClick }, ref) => (
   <div>
-    <input type={type} value={value} onChange={onChange} placeholder={placeholder} ref={ref} />
+    <input 
+      type={type} 
+      value={value} 
+      onChange={onChange} 
+      placeholder={placeholder} 
+      className={inputClassName} 
+      ref={ref}
+      onClick={onClick}
+      />
   </div>
 ));
 
