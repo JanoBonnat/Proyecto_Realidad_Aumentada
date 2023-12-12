@@ -3,16 +3,25 @@ const registerBtn = document.getElementById('register');
 registerBtn.addEventListener('click', () => {
     container.classList.add("active");
   });
-
+  const myComponent = <MyComponent name="widi" />;
+  const MyComponent = ({ name }) => {
+      return (
+        <div>
+          <h1>Hola, {name}</h1>
+        </div>
+      );
+    };
 
 
 const loginBtn = document.getElementById('login');
+loginBtn.addEventListener('click', () => {
+    container.classList.remove("active");
+});
+
 
 
 
 const QRCodeComponent = ({ text }) => {
-
-
     const qrCodeRef = useRef(null);
   
     useEffect(() => {
@@ -41,13 +50,9 @@ const QRCodeComponent = ({ text }) => {
 
 
 
-loginBtn.addEventListener('click', () => {
-    container.classList.remove("active");
-});
 
-qrBtn.addEventListener('click', () => {
-    container.classList.remove("active");
-});
+
+
 
 
 
